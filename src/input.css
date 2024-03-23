@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.container{
+    @apply max-w-[90rem] p-6 w-full mx-auto;
+}
+
+@layer components {
+
+    /* BURGERMENU */
+    .burgir__menu{
+        @apply lg:hidden
+    }
+    .burgir__menu span{
+        @apply w-[1.5rem] h-[.2rem] bg-light block rounded-full transition-all
+    }
+    .burgir__menu span:nth-child(2){
+        @apply my-1
+    }
+    .header__wrapper{
+        @apply flex items-center justify-between
+    }
+    .burgir__menu.open span:first-child{
+        @apply transform translate-y-[10px] rotate-[225deg] transition-all
+    }
+    .burgir__menu.open span:nth-child(2){
+        @apply opacity-0 transition-all;
+    }
+    .burgir__menu.open span:last-child{
+        @apply transform translate-y-[-5px] rotate-[-225deg] transition-all
+    }
+
+    /* HEADER */
+
+    .header__wrapper{
+        @apply md:px-12
+    }
+    .header__action {
+        @apply flex flex-col bg-dark absolute top-[6.2rem] right-0 w-0 h-[90vh] px-0 pt-0 overflow-hidden transition-all 
+        shadow-md lg:static lg:h-fit lg:w-fit items-center lg:shadow-none md:bg-transparent;
+    }
+    .header__action.open {
+        @apply w-[100%] h-screen px-10 pt-10 transition-all ;
+    } 
+
+    .header__action .header__nav {
+        @apply pb-5 flex flex-col gap-2 border-b-gray-400
+    }
+
+    .header__action .header__logo {
+        @apply flex flex-row justify-center md:hidden mt-6
+    }
+
+    .header__action .header__icons {
+        @apply flex flex-row justify-center gap-5 md:hidden mt-6
+    }
+
+    .header__action .header__icons i {
+        @apply px-5 py-5 hover:text-blue-800 hover:bg-light text-xl text-light;
+    }
+    
+    .header__action .header__nav li:hover a {
+        @apply text-redz;
+    }
+
+    .header__action .header__nav li a {
+        @apply font-medium text-xl text-light px-6 py-4 hover:bg-light;
+    }
+
+    .header__action .header__nav ul {
+        @apply flex flex-col gap-5 pt-36 md:flex md:flex-row md:gap-3 md:pt-2;
+    }
+
+
+   /*BANNER*/
+   .banner {
+    @apply bg-InsightBanner bg-cover h-screen bg-redz flex text-center;
+}
+    .banner .banner__content {
+        @apply flex flex-col justify-center items-center gap-5 mt-[10rem];
+    }
+    .banner .banner__content h1{
+        @apply text-4xl text-light text-center mb-8 md:text-8xl;
+    }
+    .banner .banner__content .banner__button a {
+        @apply max-w-60 mx-auto mb-5 md:mr-5 
+    }
+
+    /* SERVICES */
+    .services__cards{
+        @apply md:grid md:grid-cols-1
+        lg:grid lg:grid-cols-3;
+    }
+    .services__title{
+        @apply text-center py-8
+        lg:text-start lg:translate-x-[2rem];
+    }
+    .services__title h3{
+        @apply pb-2 text-redz text-3xl font-bold lg:text-start;
+    }
+    .services__cards .services__card{
+        @apply mb-6 shadow-lg max-w-md mx-8 leading-8 lg:hover:scale-[1.1] lg:ease-in-out;
+    }
+    .services__cards .services__card h3{
+        @apply text-center font-bold text-[1.5rem] p-6;
+    }
+    .services__cards .services__card p{
+        @apply text-justify p-4;
+    }
+    .services__card:hover .card__btn{
+        @apply bg-redz text-light;
+    }
+    .services__cards .services__card .card__infos{
+        @apply mx-4 mb-6 ;
+    }
+    .services__card .card__btn{
+        @apply text-center text-redz border-t border-t-redz py-4
+    }
+
+
+/* PROJECTS */
+     .project{
+        @apply py-6
+    }
+    .project__wrapper{
+        @apply overflow-hidden md:grid md:grid-cols-3 
+    }
+    .project__cards{
+        @apply mb-8 relative md:w-full flex items-center justify-center
+    }
+    .project__cards:first-child{
+        @apply bg-projects1 bg-cover bg-center h-[70vh] 
+    }
+    .project__cards:nth-child(2){
+        @apply bg-projects2 bg-cover bg-center h-[70vh] 
+    }
+    .project__cards:last-child{
+        @apply bg-projects3 bg-cover bg-center h-[70vh] 
+    }
+    .project__cards::before{
+        @apply md:w-[100%] md:h-[100%] absolute top-0 left-0
+        content-[""] md:bg-dark md:opacity-50 transition-all duration-700
+    }
+    .project__cards:hover::before{
+        @apply scale-0
+    }
+    .project__cards img{
+        @apply md:w-full
+    }
+    .project__cards .project__info{
+        @apply w-[20rem] bg-dark bg-opacity-70 text-light p-5 md:transition-all md:p-7 md:opacity-0
+    }
+    .project__cards:hover .project__info{
+        @apply opacity-100 transition-all duration-500
+    }
+    .project__cards h3{
+        @apply text-center text-2xl font-semibold mb-4 md:text-3xl md:m-6
+    }
+    .project__cards p{
+        @apply text-justify mb-4
+    }
+    .project__cards .project__info a{
+        @apply mx-auto w-fit flex flex-col
+    }
+
+
+
+/* CONTACTS*/
+    .contacts__content{
+        @apply flex-row md:grid md:grid-cols-2 gap-[3rem];
+    }
+    .contacts__title{
+        @apply text-center  lg:text-left justify-start mb-12;
+    }
+    .contacts__title h3{
+        @apply pb-2 text-redz text-3xl font-bold;
+    }
+    .inputtype{
+        @apply relative mb-[1rem];
+    }
+    .inputtype input{
+        @apply bg-transparent w-full p-[1rem] relative border-[1px] rounded-2xl border-gray-500 text-dark focus:border-gray-700;
+    }
+    .inputtype textarea{
+        @apply bg-transparent w-full p-[1rem] relative border-[1px] rounded-2xl border-gray-500 text-dark focus:border-gray-700 resize-none;
+    }
+    .inputtype label{
+        @apply absolute transition-all left-0 ml-[1rem];
+    }
+
+    .contacts__left{
+        @apply shadow-lg p-[1.5rem] rounded-2xl md:order-1 bg-light lg:translate-y-12;
+    }
+    .contacts__left a{
+        @apply w-[10rem] block ml-[9.5rem] text-left text-lg md:ml-[27rem] lg:translate-x-[0rem];
+    }
+    .contacts__right{
+        @apply md:order-2 
+    }
+    .contacts__right ul{
+        @apply flex gap-3 mb-[1rem] mt-[4rem];
+    }
+    .contacts__right ul li a{
+        @apply text-redz text-[1rem];
+    }
+
+
+/* FOOTER */
+
+.footer {
+    @apply py-8 bg-[#8b8a8b] mb-[-2rem];
+}
+
+.footer .footer__wrapper {
+    @apply flex flex-col items-center gap-5 md:flex md:flex-row md:place-content-around;
+}
+.footer .footer__socials {
+    @apply flex flex-row gap-8
+
+}
+.footer .footer__socials a i{
+    @apply hover:text-redz;
+
+}
+.footer .footer__socials i {
+    @apply text-light text-xl;
+}
+.footer .footer__cright p {
+    @apply text-light;
+}
+
+}
+
+@layer utilities{
+    .btn{
+        @apply inline-block py-[.5rem] px-[1rem] rounded-full border-transparent border-[1px] 
+        text-sm font-medium;
+    }
+    .btn.bg--redz{
+        @apply bg-redz text-light hover:bg-light hover:text-redz;
+    }
+    .btn.bg--transparent{
+        @apply bg-transparent border-light text-light border-[1px]  hover:bg-light hover:text-redz;
+    }
+    .btn.bg--redzu{
+        @apply bg-lightredz text-light rounded-2xl p-3 mt-4 hover:bg-light hover:text-lightredz
+    }
+    .btn.bg--redsend{
+        @apply bg-lightredz text-light text-center rounded-2xl p-1 mr-[5rem] mt-4 hover:bg-light hover:text-lightredz hover:border-dark
+    }
+
+}
